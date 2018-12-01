@@ -1,0 +1,25 @@
+# Cluster Creation Configuration Details
+userNames=100-200,305,402,299,277,288
+
+# Prefix to the user name, example rp-100
+prefix = rp
+firstName = William
+lastName = lam
+
+userPassword = VMware1!
+
+adminUser = administrator@vsphere.local
+adminPassword = VMware1!
+
+
+/usr/lib/vmware-vmafd/bin/dir-cli user create --account $(prefix+seqNo) --first-name $firstName --last-name $lastName --user-password $userPassword –login $adminUser –pasword $adminPassword
+
+
+plink.exe -ssh -t -pw abcd@1234 -l deb 192.168.176.131
+
+
+.\plink.exe -ssh -t 192.168.176.131 -pw abcd@1234 -l deb
+
+plink.exe -ssh -t -pw abcd@1234 -l deb 192.168.176.131
+
+ .\plink.exe -ssh -t 192.168.176.131 -pw abcd@1234 -l deb
