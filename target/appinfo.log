@@ -1,5 +1,0 @@
-2018-11-28 23:22:49 CommonUtil.getBannerText - Read contents : 912
-2018-11-28 23:22:50 AppRunner.executeCommands - Fatal error: Config file is not located in current directory.
-java.nio.file.NoSuchFileException: C:\kohl-dev1\cluster-user-creation\target\cluster-config.txt
-2018-11-28 23:23:08 CommonUtil.getBannerText - Read contents : 912
-2018-11-28 23:33:31 CommonUtil.getBannerText - Read contents : 912
