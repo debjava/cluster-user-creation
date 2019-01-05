@@ -1,7 +1,10 @@
 package com.emc.temp.delete1;
 
+import com.emc.vxrail.kohl.ssh.SSHConnector;
+import com.emc.vxrail.kohl.ssh.SSHResponse;
+
 public class TestSSHConnector {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
       String command = "ls -l";
       String userName = "deb";
       String password = "abcd@1234";

@@ -34,7 +34,7 @@ public class AppRunner {
       IConfigReader config = getConfigReader(CONFIG_FILE_NAME);
       clusterConfig = config.getClusterConfiguration();
 
-      cmdExecutor = new CommandExecutorImpl(config.getJumpHost());
+      cmdExecutor = new CommandExecutorImpl(config.getvCenterHost());
       cmdExecutor.executeCommand(clusterConfig);
       CommonUtil.printSuccessfullMessage("All users have been created successfully...");
     } catch (IOException e) {

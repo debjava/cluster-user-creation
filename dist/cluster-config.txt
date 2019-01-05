@@ -1,25 +1,22 @@
-# Cluster Creation Configuration Details
-userNames=100-200,305,402,299,277,288
+#Jump Host or Remote Machine Connection Details
+vcenterUserName = root
+vcenterPassword = Dellemc123!
+vcenteIpOrHostName = 192.168.10.19
+
+# Cluster Creation COnfiguration Details
+#userNames=100-200,305,402,299,277,288
+userNames=2-5
 
 # Prefix to the user name, example rp-100
 prefix = rp
 firstName = William
 lastName = lam
+vmUserPassword = Dellemc123!
+vmAdminUser = administrator@vsphere.local
+vmAdminPassword = Dellemc123!
 
-userPassword = VMware1!
+commandToExecute = /usr/lib/vmware-vmafd/bin/dir-cli user create --account {0} --first-name {1} --last-name {2} --user-password {3} --login {4} --password {5}
 
-adminUser = administrator@vsphere.local
-adminPassword = VMware1!
+# Final command which is working
+#commandToExecute = /usr/lib/vmware-vmafd/bin/dir-cli user create --account DD2 --first-name DD2 --last-name DD2 --user-password Dellemc123! --login administrator@vsphere.local --password Dellemc123!
 
-
-/usr/lib/vmware-vmafd/bin/dir-cli user create --account $(prefix+seqNo) --first-name $firstName --last-name $lastName --user-password $userPassword –login $adminUser –pasword $adminPassword
-
-
-plink.exe -ssh -t -pw abcd@1234 -l deb 192.168.176.131
-
-
-.\plink.exe -ssh -t 192.168.176.131 -pw abcd@1234 -l deb
-
-plink.exe -ssh -t -pw abcd@1234 -l deb 192.168.176.131
-
- .\plink.exe -ssh -t 192.168.176.131 -pw abcd@1234 -l deb

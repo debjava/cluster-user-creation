@@ -1,9 +1,9 @@
 package com.emc.vxrail.kohl.config;
 
-import com.emc.vxrail.kohl.bean.JumpHost;
+import com.emc.vxrail.kohl.bean.VCenterHost;
 
 public interface IConfigReader {
   IClusterConfig getClusterConfiguration();
 
-  JumpHost getJumpHost();
+  VCenterHost getvCenterHost();
 }

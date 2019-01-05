@@ -1,0 +1,18 @@
+2018-12-02 11:27:29 CommonUtil.getBannerText - Read contents : 912
+2018-12-02 11:27:30 AppRunner.executeCommands - Fatal error: Unable to create cluster users.
+java.lang.NullPointerException
+2018-12-02 11:47:00 CommonUtil.getBannerText - Read contents : 912
+2018-12-02 11:47:00 AppRunner.executeCommands - Fatal error: Unable to create cluster users.
+java.lang.NullPointerException
+2018-12-02 11:55:09 CommonUtil.getBannerText - Read contents : 912
+2018-12-02 11:55:31 SSHConnector.executeCommand - Fatal error while executing commands using JSCH ...
+{}
+com.jcraft.jsch.JSchException: session is down
+	at com.jcraft.jsch.Session.openChannel(Session.java:861)
+	at com.emc.vxrail.kohl.ssh.SSHConnector.executeCommand(SSHConnector.java:47)
+	at com.emc.vxrail.kohl.command.CommandExecutorImpl.executeCommand(CommandExecutorImpl.java:31)
+	at com.emc.vxrail.kohl.AppRunner.executeCommands(AppRunner.java:38)
+	at com.emc.vxrail.kohl.AppRunner.runApp(AppRunner.java:27)
+	at com.emc.vxrail.kohl.AppRunner.main(AppRunner.java:63)
+2018-12-02 11:55:31 AppRunner.executeCommands - Fatal error: Unable to create cluster users.
+com.jcraft.jsch.JSchException: session is down

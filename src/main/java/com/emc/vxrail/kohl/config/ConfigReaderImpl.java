@@ -1,7 +1,7 @@
 package com.emc.vxrail.kohl.config;
 
 import com.emc.vxrail.kohl.bean.ClusterUserCreateObject;
-import com.emc.vxrail.kohl.bean.JumpHost;
+import com.emc.vxrail.kohl.bean.VCenterHost;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class ConfigReaderImpl implements IConfigReader {
 
-  private JumpHost jumpHost;
+  private VCenterHost vCenterHost;
   private IClusterConfig clusterConfig;
   private ClusterUserCreateObject clUserObj;
   private Path configFilePath;
@@ -27,8 +27,8 @@ public class ConfigReaderImpl implements IConfigReader {
   }
 
   @Override
-  public JumpHost getJumpHost() {
-    return jumpHost;
+  public VCenterHost getvCenterHost() {
+    return vCenterHost;
   }
 
   public void readConfiguration(Path configFilePath) throws IOException {
@@ -36,10 +36,10 @@ public class ConfigReaderImpl implements IConfigReader {
     Properties configProp = new Properties();
     configProp.load(configReader);
     // Jump host details
-    String jumpHostUserName = configProp.getProperty("jumpHostUserName");
-    String jumpHostPassword = configProp.getProperty("jumpHostPassword");
-    String jumpHostIpOrHostName = configProp.getProperty("jumpHostIpOrHostName");
-    jumpHost = new JumpHost(jumpHostUserName, jumpHostPassword, jumpHostIpOrHostName);
+    String jumpHostUserName = configProp.getProperty("vcenterUserName");
+    String jumpHostPassword = configProp.getProperty("vcenterPassword");
+    String jumpHostIpOrHostName = configProp.getProperty("vcenteIpOrHostName");
+    vCenterHost = new VCenterHost(jumpHostUserName, jumpHostPassword, jumpHostIpOrHostName);
 
     // Cluster user details
     String userNames = configProp.getProperty("userNames");

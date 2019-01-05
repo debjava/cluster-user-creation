@@ -1,12 +1,15 @@
 package com.emc.vxrail.kohl.config;
 
 import com.emc.vxrail.kohl.bean.ClusterUserCreateObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClusterConfigImpl implements IClusterConfig {
+  protected static Logger logger = LoggerFactory.getLogger(ClusterConfigImpl.class);
   private ClusterUserCreateObject clUserObj;
 
   public ClusterConfigImpl(ClusterUserCreateObject clUserObj) {
@@ -50,11 +53,15 @@ public class ClusterConfigImpl implements IClusterConfig {
     String cmdToExecute = clUserObj.getCommandToExecute();
     MessageFormat format = new MessageFormat(cmdToExecute);
     List<String> clusterUsers = getClusterUsers();
-    for (String user : clusterUsers) {
+
+    for (int i = 0, size = clusterUsers.size(); i < size; i++) {
+      String user = clusterUsers.get(i);
+      logger.debug("User : {}",user);
+      int nameCounter = (i+1);
       Object[] cmdArgs = {
         getPrefix() + user,
-        getFirstName(),
-        getLastName(),
+        getFirstName() + nameCounter,
+        getLastName() + nameCounter,
         getVmUserPassword(),
         getVmAdminUser(),
         getVmAdminPassword()
@@ -62,6 +69,19 @@ public class ClusterConfigImpl implements IClusterConfig {
       String formattedUser = format.format(cmdArgs);
       commands.add(formattedUser);
     }
+
+    //    for (String user : clusterUsers) {
+    //      Object[] cmdArgs = {
+    //        getPrefix() + user,
+    //        getFirstName(),
+    //        getLastName(),
+    //        getVmUserPassword(),
+    //        getVmAdminUser(),
+    //        getVmAdminPassword()
+    //      };
+    //      String formattedUser = format.format(cmdArgs);
+    //      commands.add(formattedUser);
+    //    }
     return commands;
   }
 
